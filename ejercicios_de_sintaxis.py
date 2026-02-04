@@ -1,6 +1,6 @@
 import random
 
-""" Ejercicio 1.
+#Ejercicio 1.
 
 first_string = "Hola"
 second_string = "Mundo"
@@ -47,7 +47,7 @@ elif age < 60:
 else:
     stage = "adulto mayor"
 print(f"Hola {full_name}, tienes {age} años y eres un {stage}.")
-"""
+
 
 #### Ejercicio 3 
 
@@ -85,12 +85,27 @@ total_passed_grades = 0
 total_failed_grades = 0
 average_passed_grades = 0
 average_failed_grades = 0
+approved_sum = 0
+failed_sum = 0
 total_grades = int(input("¿Cuántas calificaciones deseas ingresar? "))
 
 while counter <= total_grades:
     current_grade = float(input(f"Ingresa la calificación {counter}: "))
-    if current_grade >= 6.0:
-        total_passed_grades += current_grade
+    if current_grade >= 70:
+        total_passed_grades += 1
+        approved_sum += current_grade
     else:
-        total_failed_grades += current_grade
+        total_failed_grades += 1
+        failed_sum += current_grade
     counter += 1
+
+general_average = (approved_sum + failed_sum) / total_grades
+average_passed_grades = approved_sum / total_passed_grades
+average_failed_grades = failed_sum / total_failed_grades
+
+print(f"El número total de calificaciones es de {total_grades}")
+print(f"El número de calificaciones aprobadas es de {total_passed_grades}")
+print(f"El número de calificaciones reprobadas es de {total_failed_grades}")
+print(f"El promedio de las calificaciones aprobadas es de {average_passed_grades}")
+print(f"El promedio de las calificaciones reprobadas es de {average_failed_grades}")
+print(f"El promedio general de las calificaciones es de {general_average}")
