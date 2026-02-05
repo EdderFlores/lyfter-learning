@@ -98,10 +98,15 @@ while counter <= total_grades:
         total_failed_grades += 1
         failed_sum += current_grade
     counter += 1
+if total_passed_grades > 0:
+    average_passed_grades = approved_sum / total_passed_grades
+elif total_failed_grades > 0:
+    average_failed_grades = failed_sum / total_failed_grades
+else: 
+    average_passed_grades = 0
+    average_failed_grades = 0
 
 general_average = (approved_sum + failed_sum) / total_grades
-average_passed_grades = approved_sum / total_passed_grades
-average_failed_grades = failed_sum / total_failed_grades
 
 print(f"El número total de calificaciones es de {total_grades}")
 print(f"El número de calificaciones aprobadas es de {total_passed_grades}")
