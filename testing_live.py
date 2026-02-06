@@ -5,3 +5,4 @@ my_favorite_records=[
 ]
 for index, record in enumerate(my_favorite_records):
     print(f'Record {index}: {record}')
+
