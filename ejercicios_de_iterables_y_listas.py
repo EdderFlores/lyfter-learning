@@ -9,8 +9,9 @@ print("")
 
 #Ejercicio 2
 
-goal_method = "SMART"
-for char in goal_method:
+goal_method = "TRAMS"
+for char in range(len(goal_method), 0, -1):
+    char = goal_method[char - 1]
     if char == "S":
         print(f"{char}-pecific")
     elif char == "M":
@@ -21,7 +22,8 @@ for char in goal_method:
         print(f"{char}-elevant")
     elif char == "T":
         print(f"{char}-ime-bound")
-    
+print("")
+
 #Ejercicio 3
 list_of_cities = [
     'New York', 
@@ -51,11 +53,14 @@ print("")
 #Ejercicio 4
 numbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
-non_even_number = 0
+non_even_number = []
 for index, number in enumerate(numbers_list):
     if number % 2 != 0:
-        non_even_number = index
-    numbers_list.pop(non_even_number)
+        non_even_number.append(number)
+for number in non_even_number:
+    if number in numbers_list:
+        numbers_list.remove(number)
+print(non_even_number)
 print(numbers_list) 
 print("")
 
@@ -67,8 +72,8 @@ counter = 1
 highest_number = 0
 
 while counter <= limit_numers:
-    user_numbers_list.append(user_number)
     user_number = int(input(f"Dame un numero entero ({counter}/10): "))
+    user_numbers_list.append(user_number)
     if user_number > highest_number:
         highest_number = user_number
     counter += 1
