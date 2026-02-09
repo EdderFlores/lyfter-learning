@@ -1,6 +1,6 @@
 #Ejercicio 1
 
-""" sales = [
+sales = [
     {
         "date": "2026-01-29",
         "customer_email": "edder@purchase1.com",
@@ -54,60 +54,35 @@ for sale in sales:
 
 print("")
 print("*********************************")
-print("") """
+print("")
 
 #Ejercicio 2
 
 employees = [
-    {
-        "name": "Carlos", 
-        "email": "carlos@veonservices.com", 
-        "department": "Ventas"
-    },
-    {
-        "name": "Ana", 
-        "email": "ana@veonservices.com", 
-        "department": "TI"
-    },
-    {
-        "name": "Luis", 
-        "email": "luis@veonservices.com", 
-        "department": "Ventas"
-    },
-    {
-        "name": "Sofía", 
-        "email": "sofia@veonservices.com", 
-        "department": "RRHH"
-    },
-    {
-        "name": "Edder", 
-        "email": "edder@veonservices.com", 
-        "department": "TI"
-    },
-    {
-        "name": "Danny", 
-        "email": "danny@veonservices.com", 
-        "department": "TI"
-    }
+    {"name": "Carlos", "email": "carlos@veonservices.com", "department": "Ventas"},
+    {"name": "Ana", "email": "ana@veonservices.com", "department": "TI"},
+    {"name": "Luis", "email": "luis@veonservices.com", "department": "Ventas"},
+    {"name": "Sofía", "email": "sofia@veonservices.com", "department": "RRHH"},
+    {"name": "Edder", "email": "edder@veonservices.com", "department": "Ventas"},
+    {"name": "Danny", "email": "danny@veonservices.com", "department": "TI"},
+    {"name": "Hannath", "email": "hannath@veonservices.com", "department": "TI"},
+    {"name": "Christopher", "email": "chris@veonservices.com", "department": "RRHH"},
 ]
 
-employees_by_group = [
-    {
-        "Ventas": [],
-        "TI": [],
-        "RRHH": []
-    }
-]
+employees_by_department = {}
 
 for employee in employees:
-    department = employee["department"]
-    employees_by_group[0][department].append(employee)
+    department = employee['department']
+    if department in employees_by_department:
+        employees_by_department[department].append(employee)
+    else: 
+        employees_by_department[department] = [employee] 
+
 print("")
 print("*********************************")
 print("")
 
 #Ejercicio 3
-
 products = [
     {"name": "Monitor", "category": "Electrónica", "price": 200},
     {"name": "Teclado", "category": "Electrónica", "price": 50},
@@ -115,11 +90,14 @@ products = [
     {"name": "Mesa", "category": "Muebles", "price": 180},
     {"name": "Mouse", "category": "Electrónica", "price": 25},
 ]
-products_by_category = [
-    {
-        "Electrónica": [],
-        "Muebles": []
-    }
-]
 
+total_sales_by_category = {}
+
+for product in products:
+    category = product['category']
+    price = product['price']
+    if category in total_sales_by_category:
+        total_sales_by_category[category] += price
+    else:
+        total_sales_by_category[category] = price
 
